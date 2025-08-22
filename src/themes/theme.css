@@ -151,7 +151,7 @@
 /* 通用组件样式 */
 * {
     scrollbar-width: thin;
-    scrollbar-color: var(--foreground) transparent;
+    scrollbar-color: var(--muted-foreground) transparent;
 }
 body {
   background-color: var(--background);

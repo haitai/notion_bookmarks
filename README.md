@@ -5,6 +5,13 @@
 🎉更新内容及更新方法见[保姆级教程](https://moyuguy.github.io/docs_notion_bookmarks/guide/getting-started.html)
 
 <details>
+  <summary> 2026/6/23</summary>
+ - 2026/6/23 修复网站图标加载异常：远程图标请求超时或失败时会停止加载动画，并显示本地默认图标兜底；如果远程图标随后加载成功，会自动恢复真实图标。</br>
+ - 移除未使用的 axios 依赖，处理 GitHub Dependabot 的 axios 安全告警。</br>
+ - 项目继续使用 pnpm 管理依赖，请保留 `pnpm-lock.yaml`，不要提交 `package-lock.json`。</br>
+</details>
+
+<details>
   <summary> 2025/5/19</summary>
  - 2025/5/19 新增小组件功能，简易时钟/天气/圆形时钟/IP信息/热搜</br>
   <img width="800" alt="demo" src="https://github.com/user-attachments/assets/d81be672-06b9-4df9-b1ec-a80d406284c0" />
@@ -37,4 +44,18 @@
 ## 快速开始
 [保姆级教程](https://ezho.top/code/2025/02/21/notion-bookmarks-handbook)
 
+### 本地开发
+
+```bash
+pnpm install
+pnpm dev
+```
+
+常用检查命令：
+
+```bash
+pnpm test
+pnpm lint
+pnpm build
+```
 

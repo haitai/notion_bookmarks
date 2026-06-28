@@ -24,6 +24,11 @@ export const themes: Theme[] = [
     name: 'bauhaus-primary',
     displayName: '包豪斯三原色',
     mode: 'light'
+  },
+  {
+    name: 'macintosh-1984',
+    displayName: '麦金塔 1984',
+    mode: 'light'
   }
 ]
 

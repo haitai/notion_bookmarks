@@ -26,5 +26,6 @@ export function applyTheme(themeName: string) {
 export { simpleTheme } from './simple';
 export { cyberpunkTheme } from './cyberpunk';
 export { bauhausTheme } from './bauhaus';
+export { macintosh1984Theme } from './macintosh-1984';
 
 export const defaultTheme = simpleTheme;

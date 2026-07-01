@@ -1,16 +1,22 @@
 import type { StockIdentity, StockWatchlistLayout } from '@/types/stock';
 
 export const STOCK_WATCHLIST_LIMIT = 10;
+export const DEFAULT_STOCK_WATCHLIST: StockIdentity[] = [
+  { secid: '1.000001', code: '000001', name: '上证指数', market: '指数', category: 'index' },
+  { secid: '0.399001', code: '399001', name: '深证成指', market: '指数', category: 'index' },
+  { secid: '0.399006', code: '399006', name: '创业板指', market: '指数', category: 'index' },
+];
+
 const STOCK_WATCHLIST_STORAGE_KEY = 'stockWatchlist:v1';
 const STOCK_WATCHLIST_LAYOUT_KEY = 'stockWatchlistLayout:v1';
 const STOCK_WATCHLIST_HIDE_WHEN_CLOSED_KEY = 'stockWatchlistHideWhenClosed:v1';
 
 export function getStoredStocks(): StockIdentity[] {
-  if (!canUseLocalStorage()) return [];
+  if (!canUseLocalStorage()) return DEFAULT_STOCK_WATCHLIST;
 
   try {
     const rawValue = localStorage.getItem(STOCK_WATCHLIST_STORAGE_KEY);
-    if (!rawValue) return [];
+    if (rawValue === null) return DEFAULT_STOCK_WATCHLIST;
 
     const parsed = JSON.parse(rawValue);
     if (!Array.isArray(parsed)) return [];

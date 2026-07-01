@@ -337,8 +337,23 @@ test('storage 读取坏数据时返回空数组', () => {
   assert.deepEqual(getStoredStocks(), []);
 });
 
+test('storage 首次读取时返回默认三大指数且允许用户清空', () => {
+  installLocalStorage();
+
+  assert.deepEqual(getStoredStocks(), [
+    { secid: '1.000001', code: '000001', name: '上证指数', market: '指数', category: 'index' },
+    { secid: '0.399001', code: '399001', name: '深证成指', market: '指数', category: 'index' },
+    { secid: '0.399006', code: '399006', name: '创业板指', market: '指数', category: 'index' },
+  ]);
+
+  setStoredStocks([]);
+
+  assert.deepEqual(getStoredStocks(), []);
+});
+
 test('storage 保存时去重并限制最多 10 只', () => {
   installLocalStorage();
+  setStoredStocks([]);
 
   const stocks = Array.from({ length: 12 }, (_, index) => {
     const code = String(600000 + index).padStart(6, '0');
